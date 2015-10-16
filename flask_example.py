@@ -13,7 +13,7 @@ def send_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('hello.html', directory=find_items('output_folder'))
+    return render_template('index.html', directory=find_items('output_folder'))
 
 if __name__ == "__main__":
     app.run(debug=True)
