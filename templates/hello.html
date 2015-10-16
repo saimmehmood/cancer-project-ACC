@@ -1,0 +1,15 @@
+<!doctype html>
+<title>Hello from Flask</title>
+{% if directory  %}
+	<ul>
+	{% for item in directory %}
+  		<li>
+	  		<a href="{{ url_for('send_file', filename=item) }}">
+	  			{{ item }}
+	  		</a>
+  		</li>
+	{% endfor %}
+	</ul>
+{% else %}
+	{{ directory }}
+{% endif %}
