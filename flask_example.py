@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory
 from os import listdir
-app = Flask(__name__)
+app = Flask(__name__, static_folder='output_folder')
 
 def find_items(directory):
 	items = listdir(directory)
@@ -16,4 +16,4 @@ def index():
     return render_template('index.html', directory=find_items('output_folder'))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
