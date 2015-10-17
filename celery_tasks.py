@@ -8,11 +8,14 @@ app = Celery('celery_tasks', backend='amqp', broker='amqp://')
 
 # Remember to give the complete path to the folders
 @app.task(name='celery_tasks.run_CellProfiler', bind=True)
-def run_CellProfiler(inputFolder, outputFolder, pipeline):
+def run_CellProfiler(self, inputFolder, outputFolder, pipeline):
 	cellProfiler = 'python ~/CellProfiler/CellProfiler.py'
 	os.system(cellProfiler + ' -c -i ' + inputFolder + ' -o ' + outputFolder + ' -p ' + pipeline)
 	return 0
 
-
+@app.task(name='celery_tasks.hello', bind=True)
+def hello(self):
+	print "Hello there!"
+	return 0
 
 #run_CellProfiler('~/TranslocationData', '~/output', '~/simpletransproject.cppipe')
