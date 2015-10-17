@@ -13,9 +13,4 @@ def run_CellProfiler(self, inputFolder, outputFolder, pipeline):
 	os.system(cellProfiler + ' -c -i ' + inputFolder + ' -o ' + outputFolder + ' -p ' + pipeline)
 	return 0
 
-@app.task(name='celery_tasks.hello', bind=True)
-def hello(self):
-	print "Hello there!"
-	return 0
-
 #run_CellProfiler('~/TranslocationData', '~/output', '~/simpletransproject.cppipe')
