@@ -20,6 +20,12 @@ def new_connection():
 def new_bucket(conn, name):
 	conn.put_container(name)
 	return name
+	
+#list all buckets
+def list_all(conn):
+	(response, bucket_list) = conn.get_account()
+	for bucket in bucket_list:
+		print bucket['name']
 
 # Upload files to the bucket. One single file or a directory can be uploaded
 def upload_files_to_bucket(conn, bucket_name, file_or_directory):
