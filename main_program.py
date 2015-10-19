@@ -20,8 +20,9 @@ def main_program():
 	else:
 		print "Starting CellProfiler"
 		new_task = ct.run_CellProfiler.delay(sys.argv[1], sys.argv[2], sys.argv[3])
-		while(new_task.status != SUCCESS):
+		while(new_task.status != 'SUCCESS'):
 			time.sleep(10)
+			print "Waiting for the task to complete"
 		os.system('python flask_example.py ' + sys.argv[2])
 
 
