@@ -22,7 +22,7 @@ def new_bucket(conn, name):
 	return name
 	
 #list all buckets
-def list_all(conn)
+def list_all(conn):
 	(response, bucket_list) = conn.get_account()
 	for bucket in bucket_list:
 		print bucket['name']
