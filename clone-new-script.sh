@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # Remove old repository
-sudo rm -rf cancer-project-ACC
+sudo rm -rf ~/cancer-project-ACC
+
+cd 
 
 # Download the new repository 
 git clone https://github.com/JonasSam/cancer-project-ACC.git
