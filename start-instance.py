@@ -39,14 +39,12 @@ for key in keys:
         publicKey = key.name
         
 # Read script file that will be used on instance boot
-# scriptFd = file("instance-script.sh")
-# scriptContent = scriptFd.read()
+scriptFd = file("clone-new-script.sh")
+scriptContent = scriptFd.read()
 
 # Boot the new instance         
-# newServer = nc.servers.create("Jonas-for-Cellprofiler", 
-#               imageID, flavorID, key_name=publicKey, userdata=scriptContent)
-newServer = nc.servers.create("Jonas-for-CellProfiler", 
-              imageID, flavorID, key_name=publicKey)
+newServer = nc.servers.create("Jonas-for-Cellprofiler", 
+              imageID, flavorID, key_name=publicKey, userdata=scriptContent)
 
 ''' Now we want to assign a floating ip to the new 
     instance, but we have to wait a little while 
