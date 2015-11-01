@@ -20,7 +20,7 @@ def run_CellProfiler(self, inputFolder, outputFolder, pipeline):
 	#print html
 	os.system('mkdir input_folder')
 	os.chdir('input_folder')
-	os.system('swift download jonas-cp-bucket')
+	os.system('swift download ' + inputFolder)
 	os.chdir('..')
 	cellProfiler = 'python ~/CellProfiler/CellProfiler.py'
 	os.system(cellProfiler + ' -c -i ' + 'input_folder' + ' -o ' + outputFolder + ' -p ' + pipeline)
