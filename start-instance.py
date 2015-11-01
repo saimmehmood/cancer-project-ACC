@@ -13,7 +13,7 @@ nc = Client('2',**config)
 print "Launching a new instance, may take some time."
 
 # Make sure we are in the right directory
-os.chdir('/Users/Jonas/Documents/Applied Cloud Computing/assignment3')
+#os.chdir('/Users/Jonas/Documents/Applied Cloud Computing/assignment3')
 
 # Variables needed to boot a new instance
 images = nc.images.list()
@@ -39,13 +39,13 @@ for key in keys:
         publicKey = key.name
         
 # Read script file that will be used on instance boot
-scriptFd = file("instance-script.sh")
-scriptContent = scriptFd.read()
+# scriptFd = file("instance-script.sh")
+# scriptContent = scriptFd.read()
 
 # Boot the new instance         
 # newServer = nc.servers.create("Jonas-for-Cellprofiler", 
 #               imageID, flavorID, key_name=publicKey, userdata=scriptContent)
-newServer = nc.servers.create("Jonas-for-Cellprofiler", 
+newServer = nc.servers.create("Jonas-for-CellProfiler", 
               imageID, flavorID, key_name=publicKey)
 
 ''' Now we want to assign a floating ip to the new 
